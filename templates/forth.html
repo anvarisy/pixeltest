@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+    <title>{{.title}}</title>
+    <link rel="stylesheet" href="/css/sample.css" />
+</head>
+
+<body>
+    <p>
+
+        <br> &nbsp;&nbsp; A
+        <br> &nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;\
+        <br>B &nbsp;&nbsp;&nbsp;&nbsp; C
+        <br> &nbsp;/\ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/|\
+        <br>DE &nbsp;&nbsp;F&nbsp;G&nbsp;H
+        <br> Buatlah program untuk pencarian parent dari pohon alphabet.
+        <br> Contoh :
+        <br> Input : A-C-F
+        <br> Output : true
+        <br>
+        <br> Input : A-B-D
+        <br> Output : true
+        <br>
+        <br> Contoh II :
+        <br> Input : A-B-F
+        <br> Output : false
+    </p>
+    <p>
+        <form method="post" action="/post-forth">
+            Insert the pattern that would you want !
+            <br>
+            <input type="text" name="value" style="text-transform:uppercase">
+            <input type="submit" value="Proccess">
+        </form>
+        <p style="color:red;">{{.err}}</p>
+    </p>
+    <p>The result is : {{.res}}</p>
+    <p> <a href="/">Home</a></p>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<head>
+    <title>{{.title}}</title>
+    <link rel="stylesheet" href="/css/sample.css" />
+</head>
+
+<body>
+    <p>
+        Buatlah sebuah program dengan output seperti berikut. Inputan bisa dinamis yang menghasilkan output yang berbeda-beda sesuai input yang di masukkan. Gunakan rumus A000124 of Sloane’s OEIS
+        <br> Contoh II:
+        <ul>
+            <li>
+                Input : 7
+            </li>
+            <li>
+                Output : 1-2-4-7-11-16-22
+            </li>
+        </ul>
+    </p>
+    <p>
+
+        <form method="post" action="/post-second">
+            Insert the limit !
+            <br>
+            <input type="text" name="value">
+            <input type="submit" value="Proccess">
+        </form>
+        <p style="color:red;">{{.err}}</p>
+    </p>
+    <p>The result is : {{.final}}</p>
+    <p> <a href="/">Home</a></p>
+
+</body>
+
+</html>

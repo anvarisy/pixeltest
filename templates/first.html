@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+    <title>{{.title}}</title>
+    <link rel="stylesheet" href="/css/sample.css" />
+</head>
+
+<body>
+    <p>
+
+        Jika ada donat dengan ukuran medium, jika donat tersebut di potong sekali akan menghasilkan 2 potongan donat. jika di potong tiga kali akan menghasilkan 7 potong donat. Berapa potongan donat jika di potong 20 kali? atau 50 kali? atau beberapa kali? Buatlah
+        program untuk menghitungnya !
+    </p>
+    <p>
+
+        <form method="post" action="/post-first">
+            Inset how many times donut will be cut !
+            <br>
+            <input type="text" name="value">
+            <input type="submit" value="Proccess">
+        </form>
+        <p style="color:red;">{{.err}}</p>
+    </p>
+    <p>The result is : {{.res}}</p>
+    <p> <a href="/">Home</a></p>
+
+</body>
+
+</html>
