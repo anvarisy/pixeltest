@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"errors"
 	"fmt"
 	"net/http"
 	"reflect"
@@ -10,23 +9,17 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type NodeF struct {
-	Key    int
-	Data   string
-	Grade  int
-	Left   *NodeF
-	Middle *NodeF
-	Right  *NodeF
-}
+/*
+var x = make(map[string][]string)
 
-var room []string
+func (n *NodeF) exists_II(value, grade int) bool {
 
-func (n *NodeF) exists(value, grade int) bool {
 	if n == nil {
 		return false
 	}
-	room = append(room, n.Data)
-	// fmt.Println(grade)
+	x["Key"] = append(x["key"], strconv.Itoa(n.Key))
+	x["Data"] = append(x["key"], n.Data)
+	x["Grade"] = append(x["key"], strconv.Itoa(n.Grade))
 	if n.Key == value && n.Grade == grade {
 		return true
 	}
@@ -38,10 +31,12 @@ func (n *NodeF) exists(value, grade int) bool {
 	} else {
 		return n.Middle.exists(value, grade)
 	}
-}
 
-func ForthController(c *gin.Context) {
+}
+*/
+func FifthController(c *gin.Context) {
 	room = nil
+
 	root := NodeF{7, "A", 0, nil, nil, nil}
 	root.Left = &NodeF{5, "B", 1, nil, nil, nil}
 	root.Right = &NodeF{11, "C", 1, nil, nil, nil}
@@ -53,6 +48,7 @@ func ForthController(c *gin.Context) {
 	var val string
 	var status bool
 	var temp_room []string
+	var result string
 	if c.Request.Method == "POST" {
 		post := strings.ToUpper(c.PostForm("value"))
 		val = post
@@ -77,34 +73,25 @@ func ForthController(c *gin.Context) {
 		fmt.Println(room)
 		fmt.Println(temp_room)
 		status = reflect.DeepEqual(room, temp_room)
+		if status {
+			if len(room) >= 3 {
+				result = " Tidak ada Child"
+			} else if len(room) == 2 {
+				if room[1] == "B" {
+					result = "[D E]"
+				} else {
+					result = "[F G H]"
+				}
+			} else {
+				result = "[B C]"
+			}
+		} else {
+			result = "Path tidak valid"
+		}
 	}
-	c.HTML(http.StatusOK, "forth.html", gin.H{
-		"title":  "Excercise",
-		"input":  val,
-		"res":    room,
-		"status": status,
+	c.HTML(http.StatusOK, "fifth.html", gin.H{
+		"title": "Excercise",
+		"input": val,
+		"res":   result,
 	})
-}
-
-func CharToKey(Ch string) (int, error) {
-	switch Ch {
-	case "A":
-		return 7, nil
-	case "B":
-		return 5, nil
-	case "C":
-		return 11, nil
-	case "D":
-		return 1, nil
-	case "E":
-		return 3, nil
-	case "F":
-		return 9, nil
-	case "G":
-		return 11, nil
-	case "H":
-		return 13, nil
-	default:
-		return 0, errors.New("char not registered")
-	}
 }

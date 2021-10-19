@@ -13,21 +13,17 @@
         <br>B &nbsp;&nbsp;&nbsp;&nbsp; C
         <br> &nbsp;/\ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/|\
         <br>DE &nbsp;&nbsp;F&nbsp;G&nbsp;H
-        <br> Buatlah program untuk pencarian parent dari pohon alphabet.
+        <br> Buatlah program pencarian dari pohon alphabet (soal 2), hasil nya adalah anak dari parent yang di cari.
         <br> Contoh :
-        <br> Input : A-C-F
-        <br> Output : true
+        <br> Input : A-C
+        <br> Output : F-G-H
         <br>
         <br> Input : A-B-D
-        <br> Output : true
-        <br>
-        <br> Contoh II :
-        <br> Input : A-B-F
-        <br> Output : false
+        <br> Output : Tidak ada Child
     </p>
     <p>
-        <form method="post" action="/post-forth">
-            Insert the pattern that would you want !
+        <form method="post" action="/post-fifth">
+            Insert the parent that would you want !
             <br>
             <input maxlength="3" type="text" name="value" style="text-transform:uppercase" onkeypress="return /[a-z]/i.test(event.key)">
             <input type="submit" value="Proccess">
@@ -35,7 +31,7 @@
         <p style="color:red;">{{.err}}</p>
     </p>
     <p>
-        Your input :{{.input}}<br> The right path is : {{.res}}<br>Is member : {{.status}}</p>
+        Your input :{{.input}}<br> The children : {{.res}}</p>
     <p> <a href="/">Home</a></p>
 
 </body>

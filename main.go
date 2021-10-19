@@ -24,5 +24,7 @@ func main() {
 	r.GET("/third", controllers.ThirdController)
 	r.GET("/forth", controllers.ForthController)
 	r.POST("/post-forth", controllers.ForthController)
+	r.GET("/fifth", controllers.FifthController)
+	r.POST("/post-fifth", controllers.FifthController)
 	r.Run()
 }
